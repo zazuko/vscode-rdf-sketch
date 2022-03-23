@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { defineComponent, onMounted, onUnmounted, ref } from 'vue'
+import { defineComponent, onMounted, ref } from 'vue'
 import GraphView from '@zazuko/rdf-sketch/src/components/GraphView.vue'
 
 import N3Parser from '@rdfjs/parser-n3'
