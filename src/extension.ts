@@ -63,18 +63,16 @@ class RdfPreviewPanel {
 
   private static _getHtmlForWebview(webview: vscode.Webview, extensionUri: vscode.Uri, content: string) {
     // Get resource paths
-    // const styleUri = webview.asWebviewUri(vscode.Uri.joinPath(extensionUri, 'media', 'styles.css'));
-    // const graphLayoutUri = webview.asWebviewUri(vscode.Uri.joinPath(extensionUri, 'media', 'graph-layout.js'));
-
-    const styleUri = webview.asWebviewUri(vscode.Uri.joinPath(extensionUri, 'media', 'index.css'));
-    const graphStyleUri = webview.asWebviewUri(vscode.Uri.joinPath(extensionUri, 'media', 'graph-view.css'));
-    const graphLayoutUri = webview.asWebviewUri(vscode.Uri.joinPath(extensionUri, 'media', 'graph-view.umd.js'));
-    const indexUri = webview.asWebviewUri(vscode.Uri.joinPath(extensionUri, 'media', 'index.js'));
+    const stylesUri = webview.asWebviewUri(vscode.Uri.joinPath(extensionUri, 'media', 'css', 'app.css'));
+    const appUri = webview.asWebviewUri(vscode.Uri.joinPath(extensionUri, 'media', 'js', 'app.js'));
+    const vendorUri = webview.asWebviewUri(vscode.Uri.joinPath(extensionUri, 'media', 'js', 'chunk-vendors.js'));
 
     const nonce = getNonce();
 
+    const themeClass = vscode.window.activeColorTheme.kind === 2 ? 'dark' : 'light'
+
     return `<!DOCTYPE html>
-      <html lang="en">
+      <html lang="en" class="${themeClass}">
         <head>
           <meta charset="UTF-8">
 
@@ -87,17 +85,15 @@ class RdfPreviewPanel {
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <title>RDF Sketch preview</title>
 
-          <script nonce="${nonce}" src="${graphLayoutUri}"></script>
-          <link nonce="${nonce}" rel="stylesheet" href="${styleUri}" />
-          <link nonce="${nonce}" rel="stylesheet" href="${graphStyleUri}" />
+          <script nonce="${nonce}" src="${vendorUri}"></script>
+          <link nonce="${nonce}" rel="stylesheet" href="${stylesUri}" />
         </head>
-        <body style="width: 100%; height: 100%;">
-          <div id="graph-view"></div>
-
-          <script nonce="${nonce}">
-            const graphView = window['graph-view'];
-            graphView.renderText('#graph-view', { content: \`${content}\` });
-          </script>
+        <body>
+          <textarea hidden data-content>
+            ${escapeHtml(content)}
+          </textarea>
+          <div id="app"></div>
+          <script nonce="${nonce}" src="${appUri}"></script>
         </body>
       </html>`;
   }
@@ -110,4 +106,16 @@ function getNonce() {
     text += possible.charAt(Math.floor(Math.random() * possible.length));
   }
   return text;
+}
+
+function escapeHtml(text: string): string {
+  var map: Record<string, string> = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+  };
+
+  return text.replace(/[&<>"']/g, function(m) { return map[m]; });
 }
