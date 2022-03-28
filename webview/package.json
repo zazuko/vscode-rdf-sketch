@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@rdfjs/parser-n3": "^1.1.4",
-    "@zazuko/rdf-sketch": "^0.1.1",
+    "@zazuko/rdf-sketch": "^0.1.2",
     "@zazuko/rdf-vocabularies": "^2021.9.22-3",
     "buffer": "^5.7.1",
     "core-js": "^3.8.3",

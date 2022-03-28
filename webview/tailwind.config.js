@@ -2,7 +2,7 @@ module.exports = {
   content: [
     './src/**/*.{vue,js,ts,jsx,tsx}',
     './node_modules/@zazuko/rdf-sketch/src/**/*.{vue,js,ts,jsx,tsx}',
-    './node_modules/@zazuko/spex/src/components/GraphLayout.vue',
+    './node_modules/@zazuko/vue-graph-layout/src/components/GraphLayout.vue',
   ],
   darkMode: 'class',
   theme: {
