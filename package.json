@@ -1,10 +1,14 @@
 {
   "name": "vscode-rdf-sketch",
-  "displayName": "VSCode RDF Sketch",
+  "displayName": "RDF Sketch",
   "description": "Graphical rendering of RDF data",
-  "version": "0.0.2",
-  "publisher": "zazuko",
-  "repository": "https://github.com/zazuko/vscode-rdf-sketch",
+  "version": "0.0.3",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "icon": "images/zazuko.png",
+  "publisher": "Zazuko",
+  "repository": {
+    "url": "https://github.com/zazuko/vscode-rdf-sketch"
+  },
   "engines": {
     "vscode": "^1.57.1"
   },
@@ -18,7 +22,6 @@
     "onCommand:rdfSketch.openPreview"
   ],
   "main": "./out/extension.js",
-  "license": "MIT",
   "contributes": {
     "commands": [
       {
@@ -31,7 +34,9 @@
     "vscode:prepublish": "npm run compile",
     "compile": "cd webview && npm run build && cd .. && tsc -p ./",
     "lint": "eslint . --ext .ts,.tsx",
-    "watch": "tsc -watch -p ./"
+    "watch": "tsc -watch -p ./",
+    "package": "npx vsce package",
+    "publish": "npx vsce publish"
   },
   "devDependencies": {
     "@types/debounce": "^1.2.0",
@@ -47,6 +52,6 @@
   },
   "dependencies": {
     "debounce": "^1.2.1",
-    "nanoid": "^3.1.23"
+    "nanoid": "^3.1.31"
   }
 }
