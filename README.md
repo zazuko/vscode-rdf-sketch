@@ -12,6 +12,10 @@ Open a file that contains RDF data (N3/Turtle format). Then trigger the `RDF: Op
 
 ![sketch](https://user-images.githubusercontent.com/8033981/160454088-8cf2f11d-2283-4d4e-aa47-e759a6fda483.gif)
 
+## WebApp
+
+This project is based on our Web App http://sketch.zazuko.com/ and its repository (https://github.com/zazuko/rdf-sketch).
+
 ## Development
 
 To start the extension from this repository:
