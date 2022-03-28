@@ -1,6 +1,6 @@
 {
-  "name": "rdf-sketch",
-  "displayName": "RDF Sketch",
+  "name": "vscode-rdf-sketch",
+  "displayName": "VSCode RDF Sketch",
   "description": "Graphical rendering of RDF data",
   "version": "0.0.1",
   "publisher": "zazuko",
@@ -11,10 +11,14 @@
   "categories": [
     "Other"
   ],
+  "keywords": [
+    "rdf"
+  ],
   "activationEvents": [
     "onCommand:rdfSketch.openPreview"
   ],
   "main": "./out/extension.js",
+  "license": "MIT",
   "contributes": {
     "commands": [
       {
