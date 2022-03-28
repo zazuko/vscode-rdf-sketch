@@ -2,7 +2,7 @@
   "name": "vscode-rdf-sketch",
   "displayName": "VSCode RDF Sketch",
   "description": "Graphical rendering of RDF data",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "zazuko",
   "repository": "https://github.com/zazuko/vscode-rdf-sketch",
   "engines": {
