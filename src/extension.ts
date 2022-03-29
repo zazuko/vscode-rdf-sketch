@@ -1,23 +1,11 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode'
 import { debounce } from 'debounce'
 
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
+// Called when the extension is activated
 export function activate(context: vscode.ExtensionContext) {
-  // Use the console to output diagnostic information (console.log) and errors (console.error)
-  // This line of code will only be executed once when your extension is activated
-  console.log('Congratulations, your extension "rdf-sketch" is now active!');
-
-  // The command has been defined in the package.json file
-  // Now provide the implementation of the command with registerCommand
-  // The commandId parameter must match the command field in package.json
+  // Command are defined in package.json, this provides the implementation
   const disposable = vscode.commands.registerCommand('rdfSketch.openPreview', () => {
     RdfPreviewPanel.show(context.extensionUri);
-
-    // Display a message box to the user
-    // ode.window.showInformationMessage('Preview RDF');
   });
 
   context.subscriptions.push(disposable);
@@ -48,17 +36,22 @@ class RdfPreviewPanel {
       }
     );
 
-    const update = debounce(async (e: vscode.TextDocumentChangeEvent) => {
+    const updateWebview = (document: vscode.TextDocument) => {
+      const content = document.getText()
+      panel.webview.html = this._getHtmlForWebview(panel.webview, extensionUri, content);
+    }
+
+    const onDocumentUpdate = debounce(async (e: vscode.TextDocumentChangeEvent) => {
       if (e.document !== editor) return
 
-      const content = e.document.getText()
-      panel.webview.html = this._getHtmlForWebview(panel.webview, extensionUri, content);
+      updateWebview(e.document)
     }, 1000)
 
-    vscode.workspace.onDidChangeTextDocument(update)
+    vscode.workspace.onDidChangeTextDocument(onDocumentUpdate)
 
-    const content = editor?.getText() ?? ''
-    panel.webview.html = this._getHtmlForWebview(panel.webview, extensionUri, content)
+    if (editor) {
+      updateWebview(editor)
+    }
   }
 
   private static _getHtmlForWebview(webview: vscode.Webview, extensionUri: vscode.Uri, content: string) {
