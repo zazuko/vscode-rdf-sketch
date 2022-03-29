@@ -17,7 +17,8 @@ You can install it directly from the Visual Studio Code Extension tab. It is ava
 
 Open a file that contains RDF data (N3/Turtle format). Then trigger the `RDF: Open preview` command. It will open a side-pane with a live rendering of your data.
 
-![sketch](https://user-images.githubusercontent.com/8033981/160454088-8cf2f11d-2283-4d4e-aa47-e759a6fda483.gif)
+![sketch](https://user-images.githubusercontent.com/8033981/160698016-d3fc7652-5187-4ad5-96db-565026cb0dc7.gif)
+
 
 We recommend using it in conjunction with the [Stardog RDF Grammars](https://marketplace.visualstudio.com/items?itemName=stardog-union.stardog-rdf-grammars) for Turtle syntax highlighting.
 
