@@ -11,7 +11,7 @@ This extension is based on our [Zazuko Sketch](https://sketch.zazuko.com/) web a
 
 ## Installation
 
-You can install it directly from the Visual Studio Code Extension tab. It is available on the [Marketplace](https://marketplace.visualstudio.com/items?itemName=Zazuko.rdf-sketch)
+You can install it directly from the Visual Studio Code Extension tab. It is available on the [Marketplace](https://marketplace.visualstudio.com/items?itemName=Zazuko.vscode-rdf-sketch)
 
 ## Usage
 
@@ -19,7 +19,7 @@ Open a file that contains RDF data (N3/Turtle format). Then trigger the `RDF: Op
 
 ![sketch](https://user-images.githubusercontent.com/8033981/160454088-8cf2f11d-2283-4d4e-aa47-e759a6fda483.gif)
 
-We recommend using it in conjunction with the [Stardog RDF Grammars](https://marketplace.visualstudio.com/items?itemName=stardog-union.stardog-rdf-grammars) for Turtle syntax highlighting.
+We recommend using it in conjunction with the [Stardog RDF Grammars](https://marketplace.visualstudio.com/items?itemName=stardog-union.stardog-rdf-grammars) for Turtle syntax highlighting.
 
 This extension is still pretty raw but it works for us [tm]. Bug reports & contributions are very welcome!
 
