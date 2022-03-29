@@ -2,7 +2,7 @@
   "name": "vscode-rdf-sketch",
   "displayName": "RDF Sketch",
   "description": "Graphical rendering of RDF data",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "license": "SEE LICENSE IN LICENSE.md",
   "icon": "images/zazuko.png",
   "publisher": "Zazuko",
@@ -26,9 +26,19 @@
     "commands": [
       {
         "command": "rdfSketch.openPreview",
-        "title": "RDF: Open preview"
+        "title": "RDF: Open preview",
+        "icon": "$(open-preview)"
       }
-    ]
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "when": "resourceLangId == turtle",
+          "command": "rdfSketch.openPreview",
+          "group": "navigation"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
