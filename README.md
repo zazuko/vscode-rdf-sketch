@@ -1,3 +1,6 @@
+> [!IMPORTANT]  
+> This is the old repository of RDF Sketch for VS Code. RDF Sketch for VS Code is now part of the web version, which can be found here: https://github.com/zazuko/rdf-sketch. This repository includes both the web and VS Code extension.
+
 # VSCode RDF Sketch
 
 This extension provides a way to visualize RDF data in [Visual Studio Code](https://code.visualstudio.com).
